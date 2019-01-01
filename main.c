@@ -6,6 +6,14 @@
  * 
  * Created by: Bișoc George (Fraizeraust)
  * 
+ * Remarks: For further documentation and notes regard fgets(), strtol(), strtod()
+ *          and sleep() check one of the links below.
+ * 
+ *          fgets()  -- https://www.tutorialspoint.com/c_standard_library/c_function_fgets.htm
+ *          strtol() -- https://www.tutorialspoint.com/c_standard_library/c_function_strtol.htm
+ *          strtod() -- https://www.tutorialspoint.com/c_standard_library/c_function_strtod.htm
+ *          sleep()  -- https://linux.die.net/man/3/sleep
+ * 
 */
 
 /* INCLUDES */
