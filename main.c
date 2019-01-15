@@ -72,6 +72,12 @@ int CalcInit(void)
     return 0;
 }
 
+/*A void function that wil print errors for the user*/
+void printError(char stringError[])
+{
+	PrintString("Error! : %s! The application will now exit...\n", stringError);
+}
+
 int CalcEngine(void)
 {
     /* Declarations */
@@ -187,7 +193,7 @@ int CalcEngine(void)
                 */
                 if (RetSecondOperand == 0)
                 {
-                    PrintString("It's impossible to divide by zero! The application will exit...\n");
+                    printError("It's impossible to divide by zero");
                     exit(0);
                     break;
                 }
@@ -202,7 +208,7 @@ int CalcEngine(void)
                 /* If the root operand is negative then this is an invalid operation which we must handle it */
                 if (RetRootOperand < 0)
                 {
-                    PrintString("It's impossible to do the square root by having a negative operand! The application will exit...\n");
+                    printError("It's impossible to do the square root by having a negative operand");
                     exit(0);
                     break;
                 }
@@ -214,7 +220,7 @@ int CalcEngine(void)
             /* If none of the operators match with the expected condition then the program will exit */
             default:
             {
-                PrintString("Please enter a valid number which represents the operator! The application will exit...\n");
+                printError("Please enter a valid number which represents the operator");
                 exit(0);
                 break;
             }
