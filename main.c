@@ -75,7 +75,7 @@ int CalcInit(void)
 /* A void function that wil print errors for the user */
 void PrintError(char stringError[])
 {
-	PrintString("Error! : %s The application will now exit...\n", stringError);
+	PrintString("Error! %s The application will now exit...\n", stringError);
 }
 
 int CalcEngine(void)
