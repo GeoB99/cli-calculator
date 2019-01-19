@@ -23,5 +23,7 @@ Once GCC is successfully installed, you have to type the following command line 
 
 `<programnane>` can be of any name that you wish. Keep in mind to preserve the `-lm` flag as the code uses `math.h` header which it'll link against the C math library.
 
+In order to compile the program on Windows, you must have either MinGW or Cygwin installed alongside with necessary GCC packages and files for the compiler to run. When done, you have to append the executable location of GCC (for example `C:\Program Files\MinGW\bin\gcc.exe`) to your PATH variables.
+
 ## How can I contribute?
 If you wish to contribute to this piece of program, drop a PR here with your fixes or improvements. That'd be great!

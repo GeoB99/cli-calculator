@@ -59,7 +59,11 @@ int CalcInit(void)
         --TimeOut;
 
         /* Sleep for one second, this will delay the loop */
+#ifdef __linux__
         sleep(1);
+#else
+        Sleep(1000);
+#endif
 
         if (TimeOut == 0)
         {

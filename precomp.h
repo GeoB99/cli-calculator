@@ -11,11 +11,15 @@
 /* INCLUDES */
 
 #include <stdio.h>
-#include <unistd.h>
 #include <math.h>
 #include <stdarg.h>
 #include <string.h>
 #include <stdlib.h>
+#ifdef __linux__
+#include <unistd.h>
+#else
+#include <windows.h>
+#endif
 
 /* PROTOTYPES */
 
