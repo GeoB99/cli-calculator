@@ -13,6 +13,7 @@
  *          strtol() -- https://www.tutorialspoint.com/c_standard_library/c_function_strtol.htm
  *          strtod() -- https://www.tutorialspoint.com/c_standard_library/c_function_strtod.htm
  *          sleep()  -- https://linux.die.net/man/3/sleep
+ *          Sleep()  -- https://docs.microsoft.com/en-us/windows/desktop/api/synchapi/nf-synchapi-sleep
  * 
 */
 
@@ -31,12 +32,6 @@ int PrintString(const char *Message, ...)
     /* Iterate the arguments */
     va_start(Arg, Message);
     Ret = vprintf(Message, Arg);
-
-    if (!Ret)
-    {
-        /* If vprintf() fails for some weird reason, then return the appropriate value and bail out */
-        return 1;
-    }
 
     /* If we're here, then free the list of arguments invoked by va_list() */
     va_end(Arg);
@@ -247,20 +242,8 @@ int CalcEngine(void)
 
 int main(void)
 {
-    /*
-     * Declare and initialize Ret by invoking the CalcInit() routine
-     * which will initialize the calculator program.
-    */
-    int Ret;
-    Ret = CalcInit();
-
-    /* Do a sanity check if the routine fails to perform the initialization procedure */
-    if (!Ret)
-    {
-        /* Fail and bail out */
-        return 1;
-    }
-
+    /* Invoke the calculator initialization routine */
+    CalcInit();
     return 0;
 }
 
