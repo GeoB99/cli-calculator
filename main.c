@@ -85,10 +85,14 @@ int CalcEngine(void)
     char SecondOperand[MAX_NUM];
     char Buffer[MAX_BUFF];
     char RootOperand[MAX_NUM];
+    char BaseOperand[MAX_NUM];
+    char ExponentOperand[MAX_NUM];
     long RetFirstOperand;
     long RetSecondOperand;
     long RetOperator;
     double RetRootOperand;
+    double RetBaseNumber;
+    double RetExponentNumber;
 
     /* Output the welcome string */
     PrintString("Welcome to cli-calculator!\n");
@@ -108,6 +112,7 @@ int CalcEngine(void)
         PrintString("\n3 - Multiplication\n");
         PrintString("\n4 - Division\n");
         PrintString("\n5 - Square Root\n");
+        PrintString("\n6 - Exponentation\n");
         PrintString("\n");
         PrintString("> ");
 
@@ -132,6 +137,26 @@ int CalcEngine(void)
             PrintString("> ");
             fgets(RootOperand, MAX_NUM, stdin);
             RetRootOperand = strtod(RootOperand, NULL);
+        }
+        /*
+         * The user chose to do an exponentiation. We're not going
+         * to use the normal string messages for the rest of operations.
+         * Furthermore, convert the strings passed in the argument to a double integer
+         * for the base and exponent numbers.
+        */
+        else if (RetOperator == 6)
+        {
+            /* Retrieve the base string and convert it to a double (floating type number) */
+            PrintString("Enter the base number\n");
+            PrintString("> ");
+            fgets(BaseOperand, MAX_NUM, stdin);
+            RetBaseNumber = strtod(BaseOperand, NULL);
+
+            /* Retrieve the exponent string and convert it to a double (floating type number) */
+            PrintString("Enter the exponent number\n");
+            PrintString("> ");
+            fgets(ExponentOperand, MAX_NUM, stdin);
+            RetExponentNumber = strtod(ExponentOperand, NULL);
         }
         else
         {
@@ -213,6 +238,13 @@ int CalcEngine(void)
                 }
 
                 PrintString("The square root of %lf is %lf\n", RetRootOperand, sqrt(RetRootOperand));
+                break;
+            }
+
+            /* Exponentiation */
+            case 6:
+            {
+                PrintString("%f ^ %f = %f\n", RetBaseNumber, RetExponentNumber, pow(RetBaseNumber, RetExponentNumber));
                 break;
             }
 
